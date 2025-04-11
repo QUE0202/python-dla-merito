@@ -80,31 +80,34 @@ def on_download():
 
 root = tk.Tk()
 root.title("QR Generator z Logo")
-root.geometry("400x500")
+
+# Ustawienie aplikacji na tryb pełnoekranowy
+root.attributes('-fullscreen', True)
 root.resizable(False, False)
 
-tk.Label(root, text="Podaj link lub tekst:", font=("Arial", 12)).pack(pady=(20, 5))
+# Zwiększone czcionki i odstępy, aby pasowały do większego okna
+tk.Label(root, text="Podaj link lub tekst:", font=("Arial", 40)).pack(pady=(100, 20))
 
-entry = tk.Entry(root, width=40, font=("Arial", 12))
-entry.pack(pady=5)
+entry = tk.Entry(root, width=60, font=("Arial", 28))
+entry.pack(pady=10)
 
-tk.Button(root, text="Generuj QR Kod", font=("Arial", 12), command=on_generate).pack(pady=10)
+tk.Button(root, text="Generuj QR Kod", font=("Arial", 28), command=on_generate).pack(pady=30)
 
 qr_label = tk.Label(root)
-qr_label.pack(pady=20)
+qr_label.pack(pady=30)
 
 # Przycisk do powiększania
-zoom_in_button = tk.Button(root, text="Powiększ", font=("Arial", 12), command=on_zoom_in)
-zoom_in_button.pack(pady=5)
+zoom_in_button = tk.Button(root, text="Powiększ", font=("Arial", 28), command=on_zoom_in)
+zoom_in_button.pack(pady=20)
 
 # Przycisk do zmniejszania
-zoom_out_button = tk.Button(root, text="Zmniejsz", font=("Arial", 12), command=on_zoom_out)
-zoom_out_button.pack(pady=5)
+zoom_out_button = tk.Button(root, text="Zmniejsz", font=("Arial", 28), command=on_zoom_out)
+zoom_out_button.pack(pady=20)
 
 # Przycisk do pobrania
-download_button = tk.Button(root, text="Pobierz QR Kod", font=("Arial", 12), command=on_download)
-download_button.pack(pady=10)
+download_button = tk.Button(root, text="Pobierz QR Kod", font=("Arial", 28), command=on_download)
+download_button.pack(pady=30)
 
-tk.Label(root, text="© KuBa Industries", font=("Arial", 9), fg="gray").pack(side="bottom", pady=10)
+tk.Label(root, text="© Jakub Troka", font=("Arial", 16), fg="gray").pack(side="bottom", pady=20)
 
 root.mainloop()
