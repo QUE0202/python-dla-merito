@@ -12,29 +12,25 @@ class NasaHackerGallery(tk.Tk):
         self.title("NASA IMAGE DATABASE TERMINAL")
         self.geometry("1400x800")
         self.configure(bg="black")
-        self.log_text = None  # placeholder
-        self.image_refs = []  # unikamy usuwania obrazów przez GC
+        self.log_text = None
+        self.image_refs = []
         self.create_widgets()
 
     def create_widgets(self):
         label_style = {"bg": "black", "fg": "#00FF00"}
         entry_style = {"bg": "black", "fg": "#00FF00", "insertbackground": "#00FF00"}
 
-        # Tytuł
         title = tk.Label(self, text="NASA DATABASE ACCESS PORTAL", **label_style, font=("Courier New", 20, "bold"))
         title.pack(pady=10)
 
-        # Pole wyszukiwania
         self.search_entry = tk.Entry(self, width=40, font=("Courier New", 12), **entry_style)
         self.search_entry.pack(pady=5)
 
-        # Przycisk
         self.search_button = tk.Button(self, text=">> ACCESS", command=self.search_images, bg="black", fg="#00FF00",
                                        activebackground="black", activeforeground="#00FF00",
                                        font=("Courier New", 12, "bold"))
         self.search_button.pack(pady=5)
 
-        # Lewy panel z obrazami
         self.canvas = tk.Canvas(self, bg="black", highlightthickness=0)
         self.scrollbar = ttk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
         self.scrollable_frame = tk.Frame(self.canvas, bg="black")
@@ -46,13 +42,11 @@ class NasaHackerGallery(tk.Tk):
         self.canvas.pack(side="left", fill="both", expand=True)
         self.scrollbar.pack(side="left", fill="y")
 
-        # Styl scrollbara
         style_scroll = ttk.Style()
         style_scroll.theme_use('clam')
         style_scroll.configure("Vertical.TScrollbar", background="black", troughcolor="black",
                                bordercolor="black", arrowcolor="#00FF00")
 
-        # Panel logów po prawej
         log_frame = tk.Frame(self, bg="black", width=300)
         log_frame.pack(side="right", fill="y")
 
